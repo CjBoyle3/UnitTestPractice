@@ -34,5 +34,11 @@ bool Password::has_mixed_case(string pass){
 }
 
 unsigned int Password::unique_characters(string phrase) {
-    return 0;
+    string seen = "";
+    for (char c : phrase) {
+        if (seen.find(c) == string::npos) {
+            seen += c;
+        }
+    }
+    return seen.length();
 }
