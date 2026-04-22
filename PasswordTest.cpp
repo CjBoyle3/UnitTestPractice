@@ -100,3 +100,28 @@ TEST(PasswordTest, unique_characters_with_digits_and_symbols)
     Password my_password;
     ASSERT_EQ(3, my_password.unique_characters("1!2"));
 }
+
+TEST(PasswordTest, count_leading_two_same)
+{
+    Password my_password;
+    ASSERT_EQ(2, my_password.count_leading_characters("aab"));
+}
+
+TEST(PasswordTest, count_leading_all_same)
+{
+    Password my_password;
+    ASSERT_EQ(4, my_password.count_leading_characters("aaaa"));
+}
+
+TEST(PasswordTest, count_leading_none_repeated)
+{
+    Password my_password;
+    ASSERT_EQ(1, my_password.count_leading_characters("abc"));
+}
+
+TEST(PasswordTest, count_leading_empty_string)
+{
+    Password my_password;
+    // Edge case: what happens with ""? Check what behavior makes sense
+    ASSERT_EQ(1, my_password.count_leading_characters(""));
+}
